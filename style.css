@@ -1,7 +1,12 @@
 #map {
   height: 85vh;
+  margin-top: 5px;
 }
 
 #btn_container {
-  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+#mrt_search {
+  margin-top: 2px;
 }

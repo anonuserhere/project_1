@@ -1,5 +1,5 @@
-let map = L.map("map").setView([1.287953, 103.851784], 16);
-var popup = L.popup();
+let map = L.map("map").setView([1.3569, 103.8123], 11);
+let popup = L.popup();
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 21,
@@ -18,5 +18,3 @@ function onMapClick(e) {
 }
 
 map.on("click", onMapClick);
-
-

@@ -5,20 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>SG Public Transport Coverage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
   </head>
   <body>
-    <div id="btn_container">
-      <button id="mrt_btn">MRT</button>
+    <div id="search_container">
+      <div>
+        <label>MRT: </label>
+        <div id="mrt_list"></div>
+        <button id="mrt_search">Search</button>
+      </div>
     </div>
     <div id="map_container">
       <div id="map"></div>
+    </div>
+    <div id="btn_container">
+      <button id="mrt_btn">MRT Layer ON/OFF</button>
+      <button id="busStop_btn">Bus Stop Layer ON/OFF</button>
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js"></script>
@@ -28,7 +44,7 @@
     crossorigin=""
   ></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
-  <script src="data.js"></script>
+  <script src="busData.js"></script>
   <script src="mrt.js"></script>
   <script src="script.js"></script>
 </html>
