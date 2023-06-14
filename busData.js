@@ -1,52 +1,48 @@
-let busStopCluster = L.markerClusterGroup();
-let busStopData = [];
+document.querySelector("#busStop_search").addEventListener("click", () => {
+  let selectedBS = document.querySelector("#busStop_input").value;
+  function loadBusService() {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url:
+        "https://psychic-couscous.onrender.com/ltaproxy?url=" +
+        "http://datamall2.mytransport.sg/ltaodataservice/BusArrivalv2?BusStopCode=" +
+        `${selectedBS}`,
+      headers: {
+        AccountKey: "zFmn2o2zS8yMQH/GZ0cCEQ==",
+        Accept: "application/json",
+      },
+    };
 
-function loadData(page) {
-  let config = {
-    method: "get",
-    maxBodyLength: Infinity,
-    url:
-      // "https://corsproxy.io/?" +
-      "https://psychic-couscous.onrender.com/ltaproxy?url=" +
-      "http://datamall2.mytransport.sg/ltaodataservice/BusStops" +
-      `?$skip=${(page - 1) * 500}&$top=500`,
-    headers: {
-      AccountKey: "zFmn2o2zS8yMQH/GZ0cCEQ==",
-      Accept: "application/json",
-    },
-  };
+    axios.request(config).then((response) => {
+      let result = response.data.Services;
+      console.log(result);
+      let buses = [];
 
-  axios.request(config).then((response) => {
-    let busStopMarker = response.data.value;
-    busStopData.push(...busStopMarker);
-    if (busStopMarker.length === 500) {
-      loadData(page + 1);
-    } else {
-      for (let x of busStopData) {
-        let lat = x.Latitude;
-        let lng = x.Longitude;
-        let newCoords = [lat, lng];
-        let busStop = L.marker(newCoords);
-        busStop.bindPopup(`
-        <h4>Bus Stop Code: ${x.BusStopCode}<br>
-        <h5>${x.RoadName.toUpperCase()}<br>
-            ${x.Description.toUpperCase()}<h5>`);
-        busStop.addTo(busStopCluster);
-        busStopCluster.addTo(map);
+      for (let i = 0; i < result.length; i++) {
+        buses.push(
+          {
+            busNo: result[i].ServiceNo,
+            busLat: result[i].NextBus.Latitude,
+            busLng: result[i].NextBus.Longitude,
+            busTime: result[i].NextBus.EstimatedArrival,
+          },
+          {
+            busNo: result[i].ServiceNo,
+            bus2Lat: result[i].NextBus2.Latitude,
+            bus2Lng: result[i].NextBus2.Longitude,
+            bus2Time: result[i].NextBus2.EstimatedArrival,
+          },
+          {
+            busNo: result[i].ServiceNo,
+            bus3Lat: result[i].NextBus3.Latitude,
+            bus3Lng: result[i].NextBus3.Longitude,
+            bus3Time: result[i].NextBus3.EstimatedArrival,
+          }
+        );
       }
-    }
-    let clearBusStop = document
-      .querySelector("#busStop_btn")
-      .addEventListener("click", () => {
-        if (map.hasLayer(busStopCluster)) {
-          map.removeLayer(busStopCluster);
-        } else {
-          map.addLayer(busStopCluster);
-        }
-      });
-  });
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  loadData(1);
+      console.log(buses);
+    });
+  }
+  loadBusService();
 });

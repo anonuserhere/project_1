@@ -1,12 +1,40 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 #map {
   height: 85vh;
-  margin-top: 5px;
 }
 
 #btn_container {
-  margin-top: 5px;
+  display: flex;
+  justify-content: center;
 }
 
-#mrt_search {
+#mrt_search,
+#busStop_search {
   margin-top: 2px;
+}
+
+#search_container {
+  display: flex;
+  align-content: center;
+  text-align: left;
+}
+
+#busStop_container,
+#train_container {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 4px;
+}
+
+#mrt_btn,
+#busStop_btn,
+#incident_btn {
+  margin: 2px;
+}
+
+#busStop_input {
+  height: 21%;
 }

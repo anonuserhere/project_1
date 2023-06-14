@@ -16,7 +16,7 @@ async function loadMrt() {
   for (let j = 0; j < names.length; j++) {
     let name = names[j];
     let mrtOption = document.createElement("option");
-    mrtOption.innerText = name;
+    mrtOption.innerText = name.toUpperCase();
     mrtOption.value = name;
     mrtList.appendChild(mrtOption);
     document.querySelector("#mrt_list").appendChild(mrtList);

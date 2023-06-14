@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>SG Public Transport Coverage</title>
+    <title>SG Transport Coverage</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -23,11 +23,18 @@
   </head>
   <body>
     <div id="search_container">
-      <div>
+      <div id="train_container">
         <label>MRT: </label>
         <div id="mrt_list"></div>
         <button id="mrt_search">Search</button>
       </div>
+      <div id="busStop_container">
+        <label>BUS STOP: </label><br />
+        <input type="number" id="busStop_input" placeholder="5-DIGIT BS CODE" />
+        <br />
+        <button id="busStop_search">Search</button>
+      </div>
+      <div id="busTime"></div>
     </div>
     <div id="map_container">
       <div id="map"></div>
@@ -35,6 +42,7 @@
     <div id="btn_container">
       <button id="mrt_btn">MRT Layer ON/OFF</button>
       <button id="busStop_btn">Bus Stop Layer ON/OFF</button>
+      <button id="incident_btn">Incidents Layer ON/OFF</button>
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js"></script>
@@ -44,7 +52,9 @@
     crossorigin=""
   ></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
+  <script src="traffic.js"></script>
   <script src="busData.js"></script>
+  <script src="busStopData.js"></script>
   <script src="mrt.js"></script>
   <script src="script.js"></script>
 </html>
