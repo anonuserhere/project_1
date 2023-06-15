@@ -18,30 +18,13 @@ document.querySelector("#busStop_search").addEventListener("click", () => {
       let result = response.data.Services;
       console.log(result);
       let buses = [];
+      let outputArea = document.querySelector("#busTime");
 
-      for (let i = 0; i < result.length; i++) {
-        buses.push(
-          {
-            busNo: result[i].ServiceNo,
-            busLat: result[i].NextBus.Latitude,
-            busLng: result[i].NextBus.Longitude,
-            busTime: result[i].NextBus.EstimatedArrival,
-          },
-          {
-            busNo: result[i].ServiceNo,
-            bus2Lat: result[i].NextBus2.Latitude,
-            bus2Lng: result[i].NextBus2.Longitude,
-            bus2Time: result[i].NextBus2.EstimatedArrival,
-          },
-          {
-            busNo: result[i].ServiceNo,
-            bus3Lat: result[i].NextBus3.Latitude,
-            bus3Lng: result[i].NextBus3.Longitude,
-            bus3Time: result[i].NextBus3.EstimatedArrival,
-          }
-        );
+      for (let j = 0; j < result.length; j++) {
+        let el = document.createElement("option");
+        el.innerText = `${result[j].ServiceNo}`;
+        outputArea.appendChild(el);
       }
-      console.log(buses);
     });
   }
   loadBusService();

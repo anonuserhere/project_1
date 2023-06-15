@@ -18,3 +18,27 @@ function onMapClick(e) {
 }
 
 map.on("click", onMapClick);
+
+var incidentIconClass = L.Icon.extend({
+  options: {
+    iconSize: [30, 40],
+    iconAnchor: [10, 10],
+    popupAnchor: [-3, -50],
+  },
+});
+
+var MRTIconClass = L.Icon.extend({
+  options: {
+    iconSize: [30, 40],
+    iconAnchor: [10, 10],
+    popupAnchor: [-3, -30],
+  },
+});
+
+var MRTIcon = new MRTIconClass({
+  iconUrl: "icons/MRT_logo.png",
+});
+
+var incidentIcon = new incidentIconClass({
+  iconUrl: "icons/exclamation_mark.png",
+});

@@ -16,6 +16,19 @@ body {
   margin-top: 2px;
 }
 
+#mrt_search {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: #fff;
+  border-radius: 5px;
+  padding: 6px 12px;
+}
+
+#mrt_search:hover {
+  background-color: #0b5ed7;
+  border-color: #0a58ca;
+}
+
 #search_container {
   display: flex;
   align-content: center;
@@ -33,8 +46,5 @@ body {
 #busStop_btn,
 #incident_btn {
   margin: 2px;
-}
-
-#busStop_input {
-  height: 21%;
+  border-radius: 5px;
 }

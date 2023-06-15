@@ -25,9 +25,14 @@ async function loadMrt() {
   let mrtLayer = L.geoJson(response.data, {
     onEachFeature: function (feature, layer) {
       layer.bindPopup(`
-          <h4>
-            ${feature.properties.name} (${feature.properties.lines})
-          </h4>`);
+          <h5>
+            ${feature.properties.name.toUpperCase()} (${
+        feature.properties.lines
+      })
+          </h5>`);
+    },
+    pointToLayer: function (feature, latlng) {
+      return L.marker(latlng, { icon: MRTIcon });
     },
   }).addTo(map);
 
