@@ -28,9 +28,9 @@ function loadData(page) {
         let newCoords = [lat, lng];
         let busStop = L.marker(newCoords);
         busStop.bindPopup(`
-        <h4>Bus Stop Code: ${x.BusStopCode}<br>
+        <h4>Bus Stop Code: ${x.BusStopCode}</h4><br>
         <h5>${x.RoadName.toUpperCase()}<br>
-            ${x.Description.toUpperCase()}<h5>`);
+            ${x.Description.toUpperCase()}</h5>`);
         busStop.addTo(busStopCluster);
         busStopCluster.addTo(map);
       }

@@ -21,7 +21,7 @@ function trafficData() {
       let coords = [lat, lng];
       let incidents = L.marker(coords, { icon: incidentIcon });
       incidents.bindPopup(`
-     <h4>${x.Message.toUpperCase()}<h4>`);
+     <h5>${x.Message.toUpperCase()}</h5>`);
       incidents.addTo(trafficCluster);
       trafficCluster.addTo(map);
     }

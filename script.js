@@ -21,17 +21,17 @@ map.on("click", onMapClick);
 
 var incidentIconClass = L.Icon.extend({
   options: {
-    iconSize: [30, 40],
-    iconAnchor: [10, 10],
-    popupAnchor: [-3, -50],
+    iconSize: [40, 50],
+    iconAnchor: [5, 5],
+    popupAnchor: [0, -30],
   },
 });
 
 var MRTIconClass = L.Icon.extend({
   options: {
     iconSize: [30, 40],
-    iconAnchor: [10, 10],
-    popupAnchor: [-3, -30],
+    iconAnchor: [5, 5],
+    popupAnchor: [0, -20],
   },
 });
 

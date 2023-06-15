@@ -3,12 +3,13 @@ body {
 }
 
 #map {
-  height: 85vh;
+  height: 82vh;
 }
 
 #btn_container {
   display: flex;
   justify-content: center;
+  height: 5vvh;
 }
 
 #mrt_search,
@@ -33,6 +34,12 @@ body {
   display: flex;
   align-content: center;
   text-align: left;
+  height: 13vh;
+}
+
+#time {
+  padding: 16px;
+  background-color: pink;
 }
 
 #busStop_container,
@@ -40,6 +47,10 @@ body {
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 4px;
+}
+
+.offcanvas-header {
+  background-color: gray;
 }
 
 #mrt_btn,
