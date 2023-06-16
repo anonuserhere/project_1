@@ -1,4 +1,5 @@
-let map = L.map("map").setView([1.3569, 103.8123], 11);
+let SG = [1.3569, 103.8123];
+let map = L.map("map").setView(SG, 11);
 let popup = L.popup();
 
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -33,6 +34,18 @@ var MRTIconClass = L.Icon.extend({
     iconAnchor: [5, 5],
     popupAnchor: [0, -20],
   },
+});
+
+var busIconClass = L.Icon.extend({
+  options: {
+    iconSize: [40, 50],
+    iconAnchor: [5, 5],
+    popupAnchor: [0, -20],
+  },
+});
+
+var busIcon = new busIconClass({
+  iconUrl: "icons/bus_icon.png",
 });
 
 var MRTIcon = new MRTIconClass({

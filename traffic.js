@@ -40,7 +40,7 @@ function trafficData() {
 
 window.addEventListener("DOMContentLoaded", () => {
   trafficData();
-  setInterval(function () {
+  setInterval(() => {
     map.removeLayer(trafficCluster);
     trafficData();
   }, 1000 * 300);

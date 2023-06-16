@@ -26,7 +26,7 @@ function loadData(page) {
         let lat = x.Latitude;
         let lng = x.Longitude;
         let newCoords = [lat, lng];
-        let busStop = L.marker(newCoords);
+        let busStop = L.marker(newCoords, { icon: busIcon });
         busStop.bindPopup(`
         <h4>Bus Stop Code: ${x.BusStopCode}</h4><br>
         <h5>${x.RoadName.toUpperCase()}<br>

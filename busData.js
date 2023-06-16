@@ -18,8 +18,8 @@ document.querySelector("#busStop_search").addEventListener("click", () => {
     let title = document.querySelector(".offcanvas-title");
     let time = document.querySelector("#time");
 
-    var dt = new Date();
-    time.innerHTML = `Current time: <br> ${dt}`;
+    var dateTime = new Date();
+    time.innerHTML = `Current time: <br> ${dateTime}`;
 
     axios.request(config).then((response) => {
       let result = response.data.Services;
