@@ -20,6 +20,7 @@ document.querySelector("#busStop_search").addEventListener("click", () => {
 
     var dateTime = new Date();
     time.innerHTML = `Current time: <br> ${dateTime}`;
+    let currentTime = dateTime.getTime();
 
     axios.request(config).then((response) => {
       let result = response.data.Services;
@@ -28,20 +29,27 @@ document.querySelector("#busStop_search").addEventListener("click", () => {
 
       for (let j = 0; j < result.length; j++) {
         let el = document.createElement("div");
+        let arrivalTime = new Date(result[j].NextBus.EstimatedArrival);
+        let arrivalTime2 = new Date(result[j].NextBus2.EstimatedArrival);
+        let arrivalTime3 = new Date(result[j].NextBus3.EstimatedArrival);
+        let z = Math.round((arrivalTime.getTime() - currentTime) / 60000);
+        let z1 = Math.round((arrivalTime2.getTime() - currentTime) / 60000);
+        let z2 = Math.round((arrivalTime3.getTime() - currentTime) / 60000);
+
         el.innerHTML = `Bus Service: <h3>${result[j].ServiceNo}</h3> <br>
                         Next Bus: ${result[j].NextBus.EstimatedArrival.slice(
                           11,
                           19
-                        )} <br>
+                        )} (Estimated : ${z} minutes) <br>
                         Subsequent: ${result[j].NextBus2.EstimatedArrival.slice(
                           11,
                           19
-                        )} <br>
+                        )} (Estimated : ${z1} minutes) <br>
                         Following: ${result[j].NextBus3.EstimatedArrival.slice(
                           11,
                           19
-                        )} 
-                        <br><br>`;
+                        )} (Estimated : ${z2} minutes)
+        <br><br>`;
         outputArea.appendChild(el);
       }
     });

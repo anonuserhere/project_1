@@ -45,7 +45,9 @@ function loadERP(page) {
     } else {
       console.log(erpData);
       groupedData = groupBy(erpData, "ZoneID");
+      timeData = groupBy(erpData, "StartTime");
       console.log(groupedData);
+      
     }
   });
 }

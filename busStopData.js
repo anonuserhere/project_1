@@ -6,7 +6,7 @@ function loadData(page) {
     method: "get",
     maxBodyLength: Infinity,
     url:
-      // "https://corsproxy.io/?" +
+      // // "https://corsproxy.io/?" +
       "https://psychic-couscous.onrender.com/ltaproxy?url=" +
       "http://datamall2.mytransport.sg/ltaodataservice/BusStops" +
       `?$skip=${(page - 1) * 500}&$top=500`,

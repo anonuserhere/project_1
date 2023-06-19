@@ -1,8 +1,17 @@
 #chart {
-  height: 80vh;
+  display: flex;
+  height: 90%;
 }
 
 .dropdown-menu {
   max-height: 300px;
   overflow-y: scroll;
+}
+
+#erp_main_container {
+  display: flex;
+}
+
+#index_link {
+  justify-content: center;
 }
