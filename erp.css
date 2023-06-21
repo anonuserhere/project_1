@@ -1,17 +1,36 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 #chart {
   display: flex;
-  height: 90%;
-}
-
-.dropdown-menu {
-  max-height: 300px;
-  overflow-y: scroll;
-}
-
-#erp_main_container {
-  display: flex;
+  height: 70vh;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 #index_link {
-  justify-content: center;
+  margin: 10px;
+  position: absolute;
+}
+
+#gantry_container,
+#vehicle_container,
+#day_container,
+#erp_search,
+label {
+  margin: 2px;
+}
+
+#erp_search {
+  border-radius: 5px;
+  color: antiquewhite;
+  background-color: blue;
+}
+
+#erp_search:hover {
+  cursor: pointer;
 }
