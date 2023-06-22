@@ -2,13 +2,18 @@ html,
 body {
   margin: 0px;
   padding: 0px;
-  height: 100%;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 #map {
-  height: 80vh;
-  width: 99vw;
+  height: 82vh;
+  width: 100vw;
+}
+
+#busStop_container,
+#train_container {
+  margin: 0px 5px;
+  min-height: fit-content;
 }
 
 #busStop_search {
@@ -16,7 +21,7 @@ body {
 }
 
 #busStop_input {
-  height: 27%;
+  height: 28%;
 }
 
 #mrt_search,
@@ -25,36 +30,31 @@ body {
 }
 
 #mrt_search {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  color: #fff;
-  border-radius: 5px;
   padding: 0px 10px;
-}
-
-#mrt_search:hover {
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
 }
 
 #search_container {
   display: flex;
   align-content: center;
   text-align: left;
-  height: 12vh;
   min-height: fit-content;
+  margin-bottom: 3px;
+}
+
+@media screen and (max-width: 500px) {
+  #search_container {
+    flex-direction: column;
+  }
+}
+
+#map_container {
+  margin: 2px 0px;
+  padding: 0px;
 }
 
 #time {
   padding: 16px;
   background-color: lightsalmon;
-}
-
-#busStop_container,
-#train_container {
-  margin-left: 5px;
-  margin-right: 5px;
-  margin-bottom: 4px;
 }
 
 .offcanvas-header {
@@ -76,7 +76,7 @@ body {
 footer {
   display: flex;
   justify-content: center;
-  height: 100%;
+  min-height: fit-content;
 }
 
 #erp_link {

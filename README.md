@@ -11,6 +11,7 @@ API access key granted upon registration and following the documentation.
 Special thanks to the respective communities of the tools/plugins/resources used:
 
 - Leaflet
+- OpenStreetMap
 - Axios
 - Bootstrap
 - helpful people online (Google, StackOverflow, Chappie, etc.)
@@ -19,6 +20,10 @@ You guys/gals rock! I do hope I will be able to contribute back in some way/shap
 for this generosity in future.
 Last but not least, thank you Mr. T for the proxy! I would have had to switch to something which was not my first choice for this project if not for your aid.
 
+Languages used:
 
+- HTML
+- CSS
+- JavaScript
 
 Do take a look at the project here: https://anonuserhere.github.io/

@@ -32,11 +32,15 @@
       <div id="train_container">
         <label>MRT STATION: </label>
         <div id="mrt_list"></div>
-        <button id="mrt_search">Search</button>
+        <button class="btn btn-primary" id="mrt_search">Search</button>
       </div>
       <div id="busStop_container">
         <label>BUS ARRIVAL TIMES: </label><br />
-        <input type="number" id="busStop_input" placeholder="5-DIGIT BS CODE" />
+        <input
+          type="number"
+          id="busStop_input"
+          placeholder=" 5-DIGIT BS CODE"
+        />
         <br />
         <button
           class="btn btn-primary"
@@ -77,9 +81,13 @@
         <a href="erp.html">ERP PAGE</a>
       </div>
       <div id="btn_container">
-        <button id="mrt_btn">MRT Layer ON/OFF</button>
-        <button id="busStop_btn">Bus Stop Layer ON/OFF</button>
-        <button id="incident_btn">Incidents Layer ON/OFF</button>
+        <button class="btn btn-secondary" id="mrt_btn">MRT Layer ON/OFF</button>
+        <button class="btn btn-secondary" id="busStop_btn">
+          Bus Stop Layer ON/OFF
+        </button>
+        <button class="btn btn-secondary" id="incident_btn">
+          Incidents Layer ON/OFF
+        </button>
       </div>
     </footer>
   </body>

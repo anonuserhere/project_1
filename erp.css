@@ -7,13 +7,15 @@ body {
 
 #chart {
   display: flex;
-  height: 70vh;
+  height: 65vh;
   margin-bottom: 10px;
   position: relative;
+  width: 99vw;
 }
 
 #index_link {
   margin: 10px;
+  margin-top: 120px;
   position: absolute;
 }
 
@@ -23,6 +25,10 @@ body {
 #erp_search,
 label {
   margin: 2px;
+}
+
+#gantry_container {
+  max-width: 150px;
 }
 
 #erp_search {
