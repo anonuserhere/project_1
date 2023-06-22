@@ -8,6 +8,7 @@ body {
 
 #map {
   height: 80vh;
+  width: 99vw;
 }
 
 #busStop_search {
@@ -41,6 +42,7 @@ body {
   align-content: center;
   text-align: left;
   height: 12vh;
+  min-height: fit-content;
 }
 
 #time {

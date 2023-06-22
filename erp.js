@@ -23,6 +23,7 @@ var groupBy = function (data, key) {
 
 let searchBtn = document.querySelector("#erp_search");
 let erpData = [];
+let gantryData = [];
 
 function loadERP(page) {
   let config = {
@@ -45,35 +46,60 @@ function loadERP(page) {
       loadERP(page + 1);
     } else {
       let groupedData = groupBy(erpData, "ZoneID");
-      console.log(groupedData);
+      gantryData.push(groupedData);
     }
   });
 }
 
 window.addEventListener("DOMContentLoaded", loadERP(1));
 
-//     const ay1_gantry = groupedData.AY1.filter(
-//       (timing) => timing.VehicleType === "Taxis"
-//     );
-//     console.log(ay1_gantry);
-//     let mappedData = ay1_gantry.map((x) => {
-//       return {
-//         x: x.StartTime,
-//         y: x.ChargeAmount,
-//       };
-//     });
-//     console.log(mappedData);
-//     chart.updateSeries([
-//       {
-//         name: "Damage",
-//         data: mappedData,
-//       },
-//     ]);
-//   }
-// });
+function displayData(gantry, vehicle, day) {
+  let selectedVehicle = gantryData[0][gantry].filter(
+    (x) => x.VehicleType === vehicle
+  );
+  if (day === "Weekdays") {
+    let transformedData = selectedVehicle.filter(
+      (x) => x.DayType === "Weekdays"
+    );
+    let mappedData = transformedData.map((x) => {
+      return {
+        x: x.StartTime,
+        y: x.ChargeAmount,
+      };
+    });
+
+    chart.updateSeries([
+      {
+        name: "ERP Charge",
+        data: mappedData,
+      },
+    ]);
+  } else {
+    let transformedData = selectedVehicle.filter(
+      (x) => x.DayType === "Saturday"
+    );
+    let mappedData = transformedData.map((x) => {
+      return {
+        x: x.StartTime,
+        y: x.ChargeAmount,
+      };
+    });
+
+    chart.updateSeries([
+      {
+        name: "ERP Charge",
+        data: mappedData,
+      },
+    ]);
+  }
+}
 
 searchBtn.addEventListener("click", () => {
-  let gantry = document.querySelector("#gantry_container select").value;
-  let vehicle = document.querySelector("#vehicle_container select").value;
-  let day = document.querySelector("#day_container select").value;
+  let selectedGantry = document.querySelector("#gantry_container select").value;
+  let selectedVehicle = document.querySelector(
+    "#vehicle_container select"
+  ).value;
+  let selectedDay = document.querySelector("#day_container select").value;
+
+  displayData(selectedGantry, selectedVehicle, selectedDay);
 });
